@@ -1,6 +1,8 @@
 function Username() {
   return (
-    <div className='text-semibold hidden text-sm tracking-widest'>Anuragh</div>
+    <div className='text-semibold hidden text-sm tracking-widest md:block'>
+      Anuragh
+    </div>
   );
 }
 
