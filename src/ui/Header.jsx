@@ -3,7 +3,7 @@ import SearchOrder from '../featured/order/SearchOrder';
 import Username from '../featured/user/Username';
 function Header() {
   return (
-    <header className=' flex items-center justify-between border-b border-stone-500 bg-emerald-500 px-5 py-4 uppercase sm:px-6'>
+    <header className='  flex items-center justify-between border-b border-stone-500 bg-emerald-500 px-5 py-4 uppercase sm:px-6'>
       <Link to='/' className='tracking-widest'>
         Pizza In Seconds Co.
       </Link>
