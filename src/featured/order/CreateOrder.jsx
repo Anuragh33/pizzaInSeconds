@@ -41,40 +41,45 @@ function CreateOrder() {
   const cart = fakeCart;
 
   return (
-    <div>
-      <h2>Ready to order? Lets go!</h2>
+    <div className='px-4 py-6'>
+      <h2 className='mb-8 text-xl font-semibold'>Ready to order? Lets go!</h2>
 
       {/* <Form method="POST" action="/order/new"> */}
 
       <Form method='POST'>
-        <div>
-          <label>First Name</label>
+        <div className='sm: sm: mb-5 flex flex-col gap-2 sm:flex-row sm:items-center'>
+          <label className='sm: basis-40'>First Name</label>
           <input
-            className='w-full rounded-full border border-stone-200 px-4 py-2 text-sm transition-all duration-300 focus:outline-none focus:ring focus:ring-emerald-400 md:px-6 md:py-3'
+            className='grow rounded-full border border-stone-200 px-4 py-2 text-sm transition-all duration-300 focus:outline-none focus:ring focus:ring-emerald-400 md:px-6 md:py-3'
             type='text'
             name='customer'
             required
           />
         </div>
 
-        <div>
-          <label>Phone number</label>
-          <div>
+        <div className='sm: sm: mb-5 flex flex-col gap-2 sm:flex-row sm:items-center'>
+          <label className='sm: basis-40'>Phone number</label>
+          <div className='grow'>
             <input
-              className='w-full rounded-full border border-stone-200 px-4 py-2 text-sm transition-all duration-300 focus:outline-none focus:ring focus:ring-emerald-400 md:px-6 md:py-3'
+              className=' w-full rounded-full border border-stone-200 px-4 py-2 text-sm transition-all duration-300 focus:outline-none focus:ring focus:ring-emerald-400 md:px-6 md:py-3'
               type='tel'
               name='phone'
               required
             />
+            {formErrors?.phone && (
+              <p className='mt-5 rounded-md bg-red-100 p-2 text-xs text-red-700'>
+                {' '}
+                {formErrors.phone}
+              </p>
+            )}
           </div>
-          {formErrors?.phone && <p> {formErrors.phone}</p>}
         </div>
 
-        <div>
-          <label>Address</label>
-          <div>
+        <div className='sm: sm: mb-5 flex flex-col gap-2 sm:flex-row sm:items-center'>
+          <label className='sm: basis-40'>Address</label>
+          <div className='grow'>
             <input
-              className='w-full rounded-full border border-stone-200 px-4 py-2 text-sm transition-all duration-300 focus:outline-none focus:ring focus:ring-emerald-400 md:px-6 md:py-3'
+              className=' w-full rounded-full border border-stone-200 px-4 py-2 text-sm transition-all duration-300 focus:outline-none focus:ring focus:ring-emerald-400 md:px-6 md:py-3'
               type='text'
               name='address'
               required
@@ -82,16 +87,18 @@ function CreateOrder() {
           </div>
         </div>
 
-        <div>
+        <div className='mb-12 flex items-center gap-5'>
           <input
-            className='h-6 w-6 accent-emerald-500 focus:outline-none focus:ring focus:ring-emerald-500 focus:ring-offset-2'
+            className='h-6 w-6  accent-emerald-500 focus:outline-none focus:ring focus:ring-emerald-500 focus:ring-offset-2'
             type='checkbox'
             name='priority'
             id='priority'
             // value={withPriority}
             // onChange={(e) => setWithPriority(e.target.checked)}
           />
-          <label htmlFor='priority'>Need a priority order?</label>
+          <label htmlFor='priority' className='font-medium'>
+            Want to give your order priority?
+          </label>
         </div>
 
         <div>
