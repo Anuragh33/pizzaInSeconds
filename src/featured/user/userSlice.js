@@ -24,3 +24,7 @@ async function fetchAddress() {
 
 
 */
+
+const initialState = {
+  username: '',
+};
