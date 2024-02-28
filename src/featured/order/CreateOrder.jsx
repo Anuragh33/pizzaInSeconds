@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { Form, redirect, useActionData, useNavigation } from 'react-router-dom';
 import { createOrder } from '../../services/apiRestaurant';
 import ButtonInput from '../../ui/ButtonInput';
+import Username from '../user/Username';
+import { useSelector } from 'react-redux';
 
 // https://uibakery.io/regex-library/phone-number
 const isValidPhone = (str) =>
@@ -39,6 +41,7 @@ function CreateOrder() {
   const formErrors = useActionData();
   //const [withPriority, setWithPriority] = useState(false)
   const cart = fakeCart;
+  const username = useSelector((state) => state.user.username);
 
   return (
     <div className='px-4 py-6'>
@@ -53,6 +56,7 @@ function CreateOrder() {
             className='grow rounded-full border border-stone-200 px-4 py-2 text-sm transition-all duration-300 focus:outline-none focus:ring focus:ring-emerald-400 md:px-6 md:py-3'
             type='text'
             name='customer'
+            defaultValue={username}
             required
           />
         </div>
@@ -97,7 +101,7 @@ function CreateOrder() {
             // onChange={(e) => setWithPriority(e.target.checked)}
           />
           <label htmlFor='priority' className='font-medium'>
-            Want to give your order priority?
+            {username}, Do you want a priority delivery?
           </label>
         </div>
 

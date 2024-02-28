@@ -1,7 +1,19 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import SearchOrder from '../featured/order/SearchOrder';
 import Username from '../featured/user/Username';
+import ButtonInput from './ButtonInput';
+import { useDispatch, useSelector } from 'react-redux';
+import { logout } from '../featured/user/userSlice';
+
 function Header() {
+  const username = useSelector((state) => state.user.username);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  function handleClick() {
+    dispatch(logout());
+    navigate('/');
+  }
+
   return (
     <header className='  flex items-center justify-between border-b border-stone-500 bg-emerald-500 px-5 py-4 uppercase sm:px-6'>
       <Link to='/' className='tracking-widest'>
@@ -9,6 +21,12 @@ function Header() {
       </Link>
       <SearchOrder />
       <Username />
+
+      {username && (
+        <ButtonInput type='small' callback={handleClick}>
+          Logout
+        </ButtonInput>
+      )}
     </header>
   );
 }
