@@ -15,15 +15,20 @@ function Header() {
   }
 
   return (
-    <header className='  flex items-center justify-between border-b border-stone-500 bg-emerald-500 px-5 py-4 uppercase sm:px-6'>
+    <header className=' flex items-center justify-between border-b border-stone-500 bg-emerald-500 px-5 py-4 uppercase sm:px-6'>
+      {/* <img
+        className='w-15 h-10 rounded-full object-scale-down'
+        src='./Designer.png'
+        alt='pizza in seconds'
+      /> */}
       <Link to='/' className='tracking-widest'>
-        Pizza In Seconds Co.
+        🍕 Pizza In Seconds Co.
       </Link>
       <SearchOrder />
       <Username />
 
       {username && (
-        <ButtonInput type='small' callback={handleClick}>
+        <ButtonInput type='logout' onClick={handleClick}>
           Logout
         </ButtonInput>
       )}
