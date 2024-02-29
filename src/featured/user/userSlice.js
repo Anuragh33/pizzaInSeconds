@@ -1,4 +1,4 @@
-/*
+import { createSlice } from '@reduxjs/toolkit';
 
 function getPosition() {
   return new Promise(function (resolve, reject) {
@@ -21,11 +21,6 @@ async function fetchAddress() {
   // 3) Then we return an object with the data that we are interested in
   return { position, address };
 }
-
-
-*/
-
-import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   username: 'Anuragh',
